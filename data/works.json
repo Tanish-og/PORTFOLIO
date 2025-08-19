@@ -10,6 +10,12 @@
     "description": "Credit approval system to evaluate loan applications and automate eligibility decisions.",
     "image": "images/pexels-tausif-hossain-1226302.jpg",
     "link": "https://github.com/Tanish-og/credit-approval-system"
+  },
+  {
+    "title": "Hand Gesture Recognition",
+    "description": "Real-time hand gesture recognition (Streamlit + MediaPipe + OpenCV) with finger counting via WebRTC.",
+    "image": "images/pexels-andrew-neel-6633920.jpg",
+    "link": "https://github.com/Tanish-og/Hand-gesture-recognition"
   }
 ]
 
