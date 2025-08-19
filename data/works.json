@@ -17,5 +17,12 @@
     "image": "images/pexels-pixabay-39284.jpg",
     "link": "#"
   }
+  ,
+  {
+    "title": "Movie Recommender System",
+    "description": "Content-based recommender that suggests similar movies using cosine similarity.",
+    "image": "images/pexels-xxss-is-back-777001.jpg",
+    "link": "https://github.com/Tanish-og/movie-recommender-system"
+  }
 ]
 
