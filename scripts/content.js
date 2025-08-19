@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async function () {
-    const cacheBust = 'v=3';
+    const cacheBust = (window && window.CACHE_BUSTER) || 'v=4';
     try {
         const [skillsResponse, experienceResponse, educationResponse, worksResponse] = await Promise.all([
             fetch('data/skills.json?' + cacheBust),
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         renderSkills(skills);
         renderExperience(experience);
         renderEducation(education);
-        renderWorks(works);
+        renderWorks(works, cacheBust);
     } catch (error) {
         // Silently fail if running locally via file:// without a server
         console.warn('Failed to load content JSON files:', error);
@@ -67,7 +67,12 @@ function renderEducation(educationItems) {
     }
 }
 
-function renderWorks(works) {
+function withCacheBust(url, cacheBust) {
+    if (!cacheBust) return url;
+    return url.includes('?') ? (url + '&' + cacheBust) : (url + '?' + cacheBust);
+}
+
+function renderWorks(works, cacheBust) {
     const container = document.getElementById('work-list');
     if (!container) return;
     container.innerHTML = '';
@@ -76,7 +81,7 @@ function renderWorks(works) {
         workDiv.className = 'work';
 
         const img = document.createElement('img');
-        img.src = work.image;
+        img.src = withCacheBust(work.image, cacheBust);
         img.alt = work.title;
         workDiv.appendChild(img);
 
