@@ -4,6 +4,12 @@
     "description": "Content-based recommender that suggests similar movies using cosine similarity.",
     "image": "images/pexels-xxss-is-back-777001.jpg",
     "link": "https://github.com/Tanish-og/movie-recommender-system"
+  },
+  {
+    "title": "Credit Approval System",
+    "description": "Credit approval system to evaluate loan applications and automate eligibility decisions.",
+    "image": "images/pexels-tausif-hossain-1226302.jpg",
+    "link": "https://github.com/Tanish-og/credit-approval-system"
   }
 ]
 
