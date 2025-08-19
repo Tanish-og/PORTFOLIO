@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', async function () {
+    const cacheBust = 'v=3';
     try {
         const [skillsResponse, experienceResponse, educationResponse, worksResponse] = await Promise.all([
-            fetch('data/skills.json'),
-            fetch('data/experience.json'),
-            fetch('data/education.json'),
-            fetch('data/works.json')
+            fetch('data/skills.json?' + cacheBust),
+            fetch('data/experience.json?' + cacheBust),
+            fetch('data/education.json?' + cacheBust),
+            fetch('data/works.json?' + cacheBust)
         ]);
 
         const [skills, experience, education, works] = await Promise.all([
