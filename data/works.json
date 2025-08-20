@@ -24,16 +24,10 @@
     "link": "https://github.com/Tanish-og/Emailreply"
   },
   {
-    "title": "Intro Page",
-    "description": "Modern intro/portfolio landing built with semantic HTML, CSS, and JS.",
-    "image": "images/pexels-pixabay-39284.jpg",
-    "link": "https://github.com/Tanish-og/intro-page"
-  },
-  {
-    "title": "Vercel Backend",
-    "description": "Java-based backend endpoints adapted for serverless deployment.",
-    "image": "images/pexels-tausif-hossain-1226302.jpg",
-    "link": "https://github.com/Tanish-og/vercel-backend"
+    "title": "Jobnet",
+    "description": "Job listings and application tracker with search and filters.",
+    "image": "images/pexels-taner-soyler-2459870.jpg",
+    "link": "https://github.com/Tanish-og/jobnet"
   }
 ]
 
