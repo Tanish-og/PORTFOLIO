@@ -23,7 +23,10 @@
         .cta-banner{margin:40px 0;background:linear-gradient(90deg,rgba(255,0,79,.2),rgba(255,0,79,.05));border:1px solid #ff004f;border-radius:10px;padding:30px 9%;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
         .cta-banner h2{margin:0}
         .cta-banner p{margin:0;color:#ccc}
-        .hidden{display:none}
+        /* Section visibility + animation */
+        .service-section.is-hidden{display:none}
+        .service-section.is-visible{display:block;animation:fadeSlideIn 0.4s ease both}
+        @keyframes fadeSlideIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
     </style>
 </head>
 <body>
@@ -114,9 +117,12 @@
                 var sections = document.querySelectorAll('.service-section');
                 sections.forEach(function(sec){
                     if (shouldFilter){
-                        sec.classList.toggle('hidden', sec.id !== hash);
+                        var isTarget = (sec.id === hash);
+                        sec.classList.toggle('is-hidden', !isTarget);
+                        sec.classList.toggle('is-visible', isTarget);
                     } else {
-                        sec.classList.remove('hidden');
+                        sec.classList.remove('is-hidden');
+                        sec.classList.remove('is-visible');
                     }
                 });
                 if (shouldFilter){
