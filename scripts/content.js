@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         renderExperience(experience);
         renderEducation(education);
         renderWorks(works, cacheBust);
+        setupWorksSeeMore();
     } catch (error) {
         // Silently fail if running locally via file:// without a server
         console.warn('Failed to load content JSON files:', error);
@@ -76,9 +77,12 @@ function renderWorks(works, cacheBust) {
     const container = document.getElementById('work-list');
     if (!container) return;
     container.innerHTML = '';
-    for (const work of works) {
+    works.forEach((work, index) => {
         const workDiv = document.createElement('div');
         workDiv.className = 'work';
+        if (index >= 3) {
+            workDiv.classList.add('is-hidden');
+        }
 
         const img = document.createElement('img');
         img.src = withCacheBust(work.image, cacheBust);
@@ -100,7 +104,7 @@ function renderWorks(works, cacheBust) {
         workDiv.appendChild(layer);
 
         container.appendChild(workDiv);
-    }
+    });
 
     // Hover parallax effect
     container.addEventListener('mousemove', function(e){
@@ -120,5 +124,27 @@ function renderWorks(works, cacheBust) {
         const cards = container.querySelectorAll('.work');
         cards.forEach(c => { c.style.removeProperty('--tx'); c.style.removeProperty('--ty'); });
     });
+}
+
+function setupWorksSeeMore(){
+    const button = document.getElementById('see-more-works');
+    const container = document.getElementById('work-list');
+    if (!button || !container) return;
+    button.addEventListener('click', function(e){
+        e.preventDefault();
+        const hidden = container.querySelectorAll('.work.is-hidden');
+        hidden.forEach((el) => el.classList.remove('is-hidden'));
+        button.setAttribute('aria-expanded', 'true');
+        button.textContent = 'See less';
+        // toggle back to hide extra
+        button.addEventListener('click', function onSecond(ev){
+            ev.preventDefault();
+            const cards = container.querySelectorAll('.work');
+            cards.forEach((el, i) => { if (i >= 3) el.classList.add('is-hidden'); });
+            button.setAttribute('aria-expanded', 'false');
+            button.textContent = 'See more';
+            button.removeEventListener('click', onSecond);
+        }, { once: true });
+    }, { once: true });
 }
 

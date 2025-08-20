@@ -206,6 +206,7 @@ position: relative;
     margin-top: 50px;
     overflow: hidden;
 }
+.is-hidden{display:none !important}
 .work{
     border-radius: 10px;
     position: relative;
