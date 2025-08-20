@@ -35,6 +35,11 @@
         body.filtered .service-section{display:none}
         body.filtered .service-section.is-visible{display:block;animation:fadeSlideIn 0.4s ease both}
         @keyframes fadeSlideIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        /* CTA contact reveal */
+        .cta-contacts{display:none;width:100%;padding:0 9%;}
+        .cta-contacts.visible{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:10px}
+        .cta-contacts a{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;border:1px solid #333;border-radius:999px;padding:8px 14px}
+        .cta-contacts a:hover{border-color:#ff004f}
     </style>
 </head>
 <body>
@@ -125,8 +130,13 @@
             <p>Let’s collaborate on web development, backend APIs, or AI/ML prototypes.</p>
         </div>
         <div>
-            <a href="index.html#contact" class="btn btn2">Get in touch</a>
+            <a href="#" id="cta-toggle" class="btn btn2" aria-expanded="false" aria-controls="cta-contacts">Get in touch</a>
         </div>
+    </div>
+    <div class="cta-contacts" id="cta-contacts" aria-hidden="true">
+        <a href="https://www.linkedin.com/in/tanish-gupta-53165b2aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="mailto:guptatanish50@gmail.com"><i class="fa-regular fa-envelope"></i> Email</a>
+        <a href="https://www.instagram.com/theyenvy_tanish/?hl=en" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a>
     </div>
 
     <a href="#top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
@@ -189,6 +199,18 @@
             });
             window.addEventListener('hashchange', filterSections);
             window.addEventListener('DOMContentLoaded', filterSections);
+            // CTA reveal toggle
+            window.addEventListener('DOMContentLoaded', function(){
+                var toggle = document.getElementById('cta-toggle');
+                var panel = document.getElementById('cta-contacts');
+                if (!toggle || !panel) return;
+                toggle.addEventListener('click', function(e){
+                    e.preventDefault();
+                    var isOpen = panel.classList.toggle('visible');
+                    toggle.setAttribute('aria-expanded', String(isOpen));
+                    panel.setAttribute('aria-hidden', String(!isOpen));
+                });
+            });
         })();
     </script>
 </body>
