@@ -59,6 +59,7 @@ nav ul li a{
     font-size: 18px;
     position: relative;
     font-weight: 700;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
 
 }
 nav ul li{
@@ -81,6 +82,12 @@ nav ul li a::after{
 }
 nav ul li a:hover::after{
     width: 100%;
+    box-shadow: 0 0 8px rgba(255,0,79,0.6);
+}
+/* glow on hover */
+.container nav ul li a:hover{
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255,0,79,0.6), 0 0 14px rgba(255,0,79,0.35);
 }
 .header-texts{
     margin-top: 20%;
