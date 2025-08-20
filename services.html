@@ -23,6 +23,7 @@
         .cta-banner{margin:40px 0;background:linear-gradient(90deg,rgba(255,0,79,.2),rgba(255,0,79,.05));border:1px solid #ff004f;border-radius:10px;padding:30px 9%;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
         .cta-banner h2{margin:0}
         .cta-banner p{margin:0;color:#ccc}
+        .hidden{display:none}
     </style>
 </head>
 <body>
@@ -33,7 +34,7 @@
         <p>Capabilities aligned to modern web development and applied AI/ML.</p>
     </section>
 
-    <section id="web-development" class="service-detail">
+    <section id="web-development" class="service-detail service-section">
         <h1><i class="fa-solid fa-code"></i> Web Development</h1>
         <p>I build responsive, accessible websites using HTML5, CSS3 (Flexbox/Grid), and modern JavaScript (ES6+). My focus is on performance, clean semantics, and mobile-first UX.</p>
         <h2>Skills & Tools</h2>
@@ -52,7 +53,7 @@
         <div class="divider"></div>
     </section>
 
-    <section id="backend-apis" class="service-detail">
+    <section id="backend-apis" class="service-detail service-section">
         <h1><i class="fa-solid fa-server"></i> Backend APIs</h1>
         <p>I design and implement RESTful APIs using FastAPI and Java-based stacks, with structured validation, authentication, and documentation.</p>
         <h2>Skills & Tools</h2>
@@ -71,7 +72,7 @@
         <div class="divider"></div>
     </section>
 
-    <section id="ai-ml-nlp" class="service-detail">
+    <section id="ai-ml-nlp" class="service-detail service-section">
         <h1><i class="fa-solid fa-brain"></i> AI/ML & NLP Prototyping</h1>
         <p>I create quick, useful prototypes: supervised/unsupervised models, dataset preparation, and NLP pipelines such as preprocessing and sentiment analysis.</p>
         <h2>Skills & Tools</h2>
@@ -104,6 +105,31 @@
     </div>
 
     <a href="#top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+    <script>
+        (function(){
+            function filterSections(){
+                var valid = ['web-development','backend-apis','ai-ml-nlp'];
+                var hash = (window.location.hash || '').slice(1);
+                var shouldFilter = valid.indexOf(hash) !== -1;
+                var sections = document.querySelectorAll('.service-section');
+                sections.forEach(function(sec){
+                    if (shouldFilter){
+                        sec.classList.toggle('hidden', sec.id !== hash);
+                    } else {
+                        sec.classList.remove('hidden');
+                    }
+                });
+                if (shouldFilter){
+                    var target = document.getElementById(hash);
+                    if (target){
+                        target.scrollIntoView({behavior:'smooth', block:'start'});
+                    }
+                }
+            }
+            window.addEventListener('hashchange', filterSections);
+            window.addEventListener('DOMContentLoaded', filterSections);
+        })();
+    </script>
 </body>
 </html>
 
