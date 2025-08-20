@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services • Tanish</title>
-    <link rel="stylesheet" href="style.css?v=13">
+    <link rel="stylesheet" href="style.css?v=14">
     <script src="https://kit.fontawesome.com/8be59fa23e.js" crossorigin="anonymous"></script>
     <style>
         .service-detail{max-width:1000px;margin:0 auto;padding:60px 9%;}
@@ -18,9 +18,15 @@
         .service-hero{background:linear-gradient(rgba(0,0,0,.82),rgba(255,0,79,.25)),url('images/pexels-xxss-is-back-777001.jpg?v=13') center/cover no-repeat;padding:80px 9%;}
         .service-hero h1{font-size:48px}
         .divider{height:1px;background:#333;margin:30px 0}
+        .demo-list a{color:#fff;text-decoration:underline}
+        .back-to-top{position:fixed;right:18px;bottom:18px;background:#ff004f;color:#fff;border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.4);z-index:10}
+        .cta-banner{margin:40px 0;background:linear-gradient(90deg,rgba(255,0,79,.2),rgba(255,0,79,.05));border:1px solid #ff004f;border-radius:10px;padding:30px 9%;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+        .cta-banner h2{margin:0}
+        .cta-banner p{margin:0;color:#ccc}
     </style>
 </head>
 <body>
+    <div id="top"></div>
     <a href="index.html#services" class="back-link">← Back to Services</a>
     <section class="service-hero">
         <h1>Services</h1>
@@ -36,8 +42,8 @@
         </div>
         <h2>Sample Work</h2>
         <ul class="demo-list">
-            <li>Personal portfolio with responsive layout and dynamic content.</li>
-            <li>Landing pages following semantic HTML and accessible components.</li>
+            <li><a href="https://github.com/Tanish-og/PORTFOLIO" target="_blank" rel="noopener noreferrer">Portfolio website (responsive UI & dynamic content)</a></li>
+            <li><a href="https://github.com/Tanish-og/movie-recommender-system" target="_blank" rel="noopener noreferrer">Movie Recommender UI prototype</a></li>
         </ul>
         <h2>What I Deliver</h2>
         <p>Production-ready frontends, componentized UI, and optimization for Core Web Vitals.</p>
@@ -53,8 +59,8 @@
         </div>
         <h2>Sample Work</h2>
         <ul class="demo-list">
-            <li>REST API for content management with JWT-based auth.</li>
-            <li>FastAPI endpoints wrapping ML inferences for demos.</li>
+            <li><a href="https://github.com/Tanish-og/credit-approval-system" target="_blank" rel="noopener noreferrer">Credit Approval System API (auth, validation, decisions)</a></li>
+            <li><a href="https://github.com/Tanish-og/movie-recommender-system" target="_blank" rel="noopener noreferrer">ML-backed API demo (recommendations)</a></li>
         </ul>
         <h2>What I Deliver</h2>
         <p>Clean, maintainable API services with clear docs and testable endpoints.</p>
@@ -70,8 +76,8 @@
         </div>
         <h2>Sample Work</h2>
         <ul class="demo-list">
-            <li>Movie recommender (content-based similarity).</li>
-            <li>Hand-gesture recognition demo with streaming.</li>
+            <li><a href="https://github.com/Tanish-og/movie-recommender-system" target="_blank" rel="noopener noreferrer">Movie Recommender (content-based similarity)</a></li>
+            <li><a href="https://github.com/Tanish-og/Hand-gesture-recognition" target="_blank" rel="noopener noreferrer">Hand-Gesture Recognition (WebRTC/Streamlit)</a></li>
         </ul>
         <h2>What I Deliver</h2>
         <p>Clear notebooks, short reports, and optional API wrappers to integrate models.</p>
@@ -80,6 +86,18 @@
     <div class="service-detail">
         <a href="index.html#contact" class="btn">Contact Me</a>
     </div>
+
+    <div class="service-detail cta-banner">
+        <div>
+            <h2>Have a project in mind?</h2>
+            <p>Let’s collaborate on web development, backend APIs, or AI/ML prototypes.</p>
+        </div>
+        <div>
+            <a href="index.html#contact" class="btn btn2">Get in touch</a>
+        </div>
+    </div>
+
+    <a href="#top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
 </body>
 </html>
 
