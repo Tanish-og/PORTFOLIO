@@ -22,8 +22,11 @@
         .demo-list a:hover{opacity:.9}
         /* Tabs */
         .service-tabs{position:sticky;top:0;background:rgba(8,8,8,.9);backdrop-filter:blur(6px);padding:12px 9%;border-bottom:1px solid #333;display:flex;gap:10px;z-index:6}
-        .service-tab{color:#fff;text-decoration:none;border:1px solid #333;border-radius:999px;padding:8px 14px;font-size:14px}
-        .service-tab.active{border-color:#ff004f;background:#ff004f}
+        .service-tab{position:relative;color:#fff;text-decoration:none;border:1px solid #333;border-radius:999px;padding:8px 14px;font-size:14px;outline:none}
+        .service-tab:focus-visible{outline:2px solid #ff004f;outline-offset:2px}
+        .service-tab::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:2px;background:#ff004f;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+        .service-tab:hover::after,.service-tab.active::after{transform:scaleX(1)}
+        .service-tab.active{border-color:#ff004f;background:#ff004f22}
         .back-to-top{position:fixed;right:18px;bottom:18px;background:#ff004f;color:#fff;border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.4);z-index:10}
         .cta-banner{margin:40px 0;background:linear-gradient(90deg,rgba(255,0,79,.2),rgba(255,0,79,.05));border:1px solid #ff004f;border-radius:10px;padding:30px 9%;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
         .cta-banner h2{margin:0}
@@ -42,13 +45,13 @@
         <p>Capabilities aligned to modern web development and applied AI/ML.</p>
     </section>
 
-    <nav class="service-tabs">
-        <a href="#web-development" class="service-tab" data-target="web-development">Web Development</a>
-        <a href="#backend-apis" class="service-tab" data-target="backend-apis">Backend APIs</a>
-        <a href="#ai-ml-nlp" class="service-tab" data-target="ai-ml-nlp">AI/ML & NLP</a>
+    <nav class="service-tabs" role="tablist" aria-label="Services">
+        <a href="#web-development" class="service-tab" role="tab" id="tab-web-development" aria-controls="web-development" aria-selected="false" tabindex="0" data-target="web-development">Web Development</a>
+        <a href="#backend-apis" class="service-tab" role="tab" id="tab-backend-apis" aria-controls="backend-apis" aria-selected="false" tabindex="-1" data-target="backend-apis">Backend APIs</a>
+        <a href="#ai-ml-nlp" class="service-tab" role="tab" id="tab-ai-ml-nlp" aria-controls="ai-ml-nlp" aria-selected="false" tabindex="-1" data-target="ai-ml-nlp">AI/ML & NLP</a>
     </nav>
 
-    <section id="web-development" class="service-detail service-section">
+    <section id="web-development" class="service-detail service-section" role="tabpanel" aria-labelledby="tab-web-development" tabindex="0">
         <h1><i class="fa-solid fa-code"></i> Web Development</h1>
         <p>I build responsive, accessible websites using HTML5, CSS3 (Flexbox/Grid), and modern JavaScript (ES6+). My focus is on performance, clean semantics, and mobile-first UX.</p>
         <h2>Skills & Tools</h2>
@@ -69,7 +72,7 @@
         <div class="divider"></div>
     </section>
 
-    <section id="backend-apis" class="service-detail service-section">
+    <section id="backend-apis" class="service-detail service-section" role="tabpanel" aria-labelledby="tab-backend-apis" tabindex="0">
         <h1><i class="fa-solid fa-server"></i> Backend APIs</h1>
         <p>I design and implement RESTful APIs using FastAPI and Java-based stacks, with structured validation, authentication, and documentation.</p>
         <h2>Skills & Tools</h2>
@@ -91,7 +94,7 @@
         <div class="divider"></div>
     </section>
 
-    <section id="ai-ml-nlp" class="service-detail service-section">
+    <section id="ai-ml-nlp" class="service-detail service-section" role="tabpanel" aria-labelledby="tab-ai-ml-nlp" tabindex="0">
         <h1><i class="fa-solid fa-brain"></i> AI/ML & NLP Prototyping</h1>
         <p>I create quick, useful prototypes: supervised/unsupervised models, dataset preparation, and NLP pipelines such as preprocessing and sentiment analysis.</p>
         <h2>Skills & Tools</h2>
@@ -133,7 +136,10 @@
                 var tabs = document.querySelectorAll('.service-tab');
                 tabs.forEach(function(tab){
                     var target = tab.getAttribute('data-target');
-                    tab.classList.toggle('active', target === hash);
+                    var isActive = (target === hash);
+                    tab.classList.toggle('active', isActive);
+                    tab.setAttribute('aria-selected', String(isActive));
+                    tab.setAttribute('tabindex', isActive ? '0' : '-1');
                 });
             }
 
@@ -163,6 +169,24 @@
                     }
                 }
             }
+            function focusNextTab(delta){
+                var tabs = Array.prototype.slice.call(document.querySelectorAll('.service-tab'));
+                var activeIndex = tabs.findIndex(function(t){return t.getAttribute('tabindex') === '0';});
+                if (activeIndex === -1) activeIndex = 0;
+                var nextIndex = (activeIndex + delta + tabs.length) % tabs.length;
+                tabs[nextIndex].focus();
+            }
+            document.querySelector('.service-tabs').addEventListener('keydown', function(e){
+                var key = e.key;
+                if (key === 'ArrowRight'){ e.preventDefault(); focusNextTab(1); }
+                else if (key === 'ArrowLeft'){ e.preventDefault(); focusNextTab(-1); }
+                else if (key === 'Home'){ e.preventDefault(); var tabs=document.querySelectorAll('.service-tab'); tabs[0].focus(); }
+                else if (key === 'End'){ e.preventDefault(); var tabs2=document.querySelectorAll('.service-tab'); tabs2[tabs2.length-1].focus(); }
+                else if (key === 'Enter' || key === ' '){
+                    var target = document.activeElement && document.activeElement.getAttribute('data-target');
+                    if (target){ e.preventDefault(); window.location.hash = '#' + target; }
+                }
+            });
             window.addEventListener('hashchange', filterSections);
             window.addEventListener('DOMContentLoaded', filterSections);
         })();
