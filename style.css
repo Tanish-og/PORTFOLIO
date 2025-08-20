@@ -19,7 +19,7 @@ body{
     width: 100%;
     height: 100vh;
     /* background image on first page is added from here */
-    background-image: url("images/pexels-taner-soyler-2459870.jpg?v=4");
+    background-image: linear-gradient(rgba(0,0,0,0.82), rgba(255,0,79,0.25)), url("images/pexels-xxss-is-back-777001.jpg?v=13");
     background-size: cover;
     background-position: center;
 }
@@ -349,7 +349,7 @@ nav .fas{
 
 @media only screen and (max-width: 600px){
     #header{
-        background-image: url(images/pexels-zetong-li-1784578.jpg?v=4);
+        background-image: linear-gradient(rgba(0,0,0,0.85), rgba(255,0,79,0.28)), url(images/pexels-xxss-is-back-777001.jpg?v=13);
     }
     .header-texts{
        margin-top: 100%;
