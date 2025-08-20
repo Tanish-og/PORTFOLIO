@@ -16,6 +16,24 @@
     "description": "Real-time hand gesture recognition (Streamlit + MediaPipe + OpenCV) with finger counting via WebRTC.",
     "image": "images/pexels-andrew-neel-6633920.jpg",
     "link": "https://github.com/Tanish-og/Hand-gesture-recognition"
+  },
+  {
+    "title": "Email Reply Assistant",
+    "description": "Lightweight web app to draft quick email replies; deployed on Vercel.",
+    "image": "images/pexels-designecologist-1779487.jpg",
+    "link": "https://github.com/Tanish-og/Emailreply"
+  },
+  {
+    "title": "Intro Page",
+    "description": "Modern intro/portfolio landing built with semantic HTML, CSS, and JS.",
+    "image": "images/pexels-pixabay-39284.jpg",
+    "link": "https://github.com/Tanish-og/intro-page"
+  },
+  {
+    "title": "Vercel Backend",
+    "description": "Java-based backend endpoints adapted for serverless deployment.",
+    "image": "images/pexels-taner-soyler-2459870.jpg",
+    "link": "https://github.com/Tanish-og/vercel-backend"
   }
 ]
 
