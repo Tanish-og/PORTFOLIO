@@ -28,9 +28,21 @@ body{
 }
 nav{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+/* centered pill-style menu on desktop */
+nav ul{
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 10px 18px;
+    margin: 6px auto 0 auto;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid #333;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 .logo{
     width: 56px;
@@ -46,6 +58,7 @@ nav ul li a{
     text-decoration: none;
     font-size: 18px;
     position: relative;
+    font-weight: 700;
 
 }
 nav ul li{
