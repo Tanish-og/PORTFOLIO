@@ -33,9 +33,13 @@ nav{
     flex-wrap: wrap;
 }
 .logo{
-    width: 44px;
-    height: 44px;
+    width: 56px;
+    height: 56px;
     margin: 0;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
 }
 nav ul li a{
     color: #fff;
