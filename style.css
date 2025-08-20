@@ -33,10 +33,9 @@ nav{
     flex-wrap: wrap;
 }
 .logo{
-    width: 100px;
-    margin: -22px;
-    margin-top: -7.5px;
-  
+    width: 44px;
+    height: 44px;
+    margin: 0;
 }
 nav ul li a{
     color: #fff;
