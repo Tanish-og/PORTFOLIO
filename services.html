@@ -130,13 +130,8 @@
             <p>Let’s collaborate on web development, backend APIs, or AI/ML prototypes.</p>
         </div>
         <div>
-            <a href="#" id="cta-toggle" class="btn btn2" aria-expanded="false" aria-controls="cta-contacts">Get in touch</a>
+            <a href="index.html#contact" class="btn btn2">Get in touch</a>
         </div>
-    </div>
-    <div class="cta-contacts" id="cta-contacts" aria-hidden="true">
-        <a href="https://www.linkedin.com/in/tanish-gupta-53165b2aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-        <a href="mailto:guptatanish50@gmail.com"><i class="fa-regular fa-envelope"></i> Email</a>
-        <a href="https://www.instagram.com/theyenvy_tanish/?hl=en" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a>
     </div>
 
     <a href="#top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
@@ -199,18 +194,6 @@
             });
             window.addEventListener('hashchange', filterSections);
             window.addEventListener('DOMContentLoaded', filterSections);
-            // CTA reveal toggle
-            window.addEventListener('DOMContentLoaded', function(){
-                var toggle = document.getElementById('cta-toggle');
-                var panel = document.getElementById('cta-contacts');
-                if (!toggle || !panel) return;
-                toggle.addEventListener('click', function(e){
-                    e.preventDefault();
-                    var isOpen = panel.classList.toggle('visible');
-                    toggle.setAttribute('aria-expanded', String(isOpen));
-                    panel.setAttribute('aria-hidden', String(!isOpen));
-                });
-            });
         })();
     </script>
 </body>
