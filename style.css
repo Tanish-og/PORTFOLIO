@@ -22,6 +22,26 @@ body{
     background-image: url("images/pexels-taner-soyler-2459870.jpg?v=4");
     background-size: cover;
     background-position: center;
+    position: relative;
+}
+. 
+/* 3D themed overlay for header (black/red) */
+#header::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(60rem 30rem at 15% 25%, rgba(255,0,79,0.12), transparent 45%),
+        radial-gradient(50rem 25rem at 85% 70%, rgba(255,0,79,0.10), transparent 45%),
+        linear-gradient(120deg, rgba(255,0,79,0.06), rgba(0,0,0,0.0) 60%);
+    mix-blend-mode: screen;
+    animation: floatBg 12s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes floatBg{
+    from{ transform: translate3d(0,0,0) scale(1); }
+    to{ transform: translate3d(0,-8px,0) scale(1.02); }
 }
 .container{
     padding: 9px 9%;
@@ -92,10 +112,22 @@ nav ul li a:hover::after{
 .header-texts{
     margin-top: 20%;
     font-size: 30px;
+    perspective: 800px;
 }
 .header-texts h1{
     font-size: 55px;
     margin-top: 22px;
+    transform-style: preserve-3d;
+    transition: transform 400ms ease, text-shadow 400ms ease;
+    text-shadow:
+        0 1px 0 #ff004f,
+        0 2px 0 #c0003e,
+        0 3px 0 #8f0030,
+        0 4px 0 #5e001f,
+        0 6px 12px rgba(255,0,79,0.35);
+}
+.header-texts:hover h1{
+    transform: rotateX(6deg) rotateY(-5deg) translateZ(12px);
 }
 .header-texts h1 span{
     color: #ff004f;
