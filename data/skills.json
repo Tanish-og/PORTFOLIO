@@ -1,6 +1,10 @@
 [
-  { "name": "DSA", "detail": "Problem Solving" },
-  { "name": "WEB DEVELOPMENT", "detail": "Websites development" },
-  { "name": "APP DEVELOPMENT", "detail": "Building android apps" }
+  { "name": "Web Development", "detail": "HTML5, CSS3 (Flexbox, Grid), JavaScript (ES6+), responsive & accessible UI" },
+  { "name": "Backend Development", "detail": "FastAPI for RESTful APIs, Java-based backends, authentication, validation" },
+  { "name": "Programming", "detail": "Python (AI/ML, data handling), Java (OOP, backend)" },
+  { "name": "AI/ML", "detail": "Supervised & unsupervised learning, model training/evaluation, dataset preparation" },
+  { "name": "NLP", "detail": "Text preprocessing, sentiment analysis, simple NLP pipelines" },
+  { "name": "Tools & Platforms", "detail": "Git/GitHub, VS Code, Jupyter Notebook, Postman" },
+  { "name": "Soft Skills", "detail": "Problem-solving, adaptability, teamwork, continuous learning" }
 ]
 
