@@ -85,6 +85,11 @@ function renderWorks(works, cacheBust) {
         img.alt = work.title;
         workDiv.appendChild(img);
 
+        const badge = document.createElement('div');
+        badge.className = 'logo-badge';
+        badge.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="6" height="6" stroke="currentColor"/><rect x="15" y="3" width="6" height="6" stroke="currentColor"/><rect x="3" y="15" width="6" height="6" stroke="currentColor"/><path d="M15 15h6v6h-6z" fill="currentColor"/></svg>';
+        workDiv.appendChild(badge);
+
         const layer = document.createElement('div');
         layer.className = 'layer';
         layer.innerHTML = `
@@ -96,5 +101,24 @@ function renderWorks(works, cacheBust) {
 
         container.appendChild(workDiv);
     }
+
+    // Hover parallax effect
+    container.addEventListener('mousemove', function(e){
+        const card = e.target.closest('.work');
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const cx = rect.left + rect.width/2;
+        const cy = rect.top + rect.height/2;
+        const dx = (e.clientX - cx) / rect.width;  // -0.5..0.5
+        const dy = (e.clientY - cy) / rect.height; // -0.5..0.5
+        const tx = Math.max(-8, Math.min(8, dx * 12));
+        const ty = Math.max(-8, Math.min(8, dy * 12));
+        card.style.setProperty('--tx', tx + 'px');
+        card.style.setProperty('--ty', ty + 'px');
+    });
+    container.addEventListener('mouseleave', function(){
+        const cards = container.querySelectorAll('.work');
+        cards.forEach(c => { c.style.removeProperty('--tx'); c.style.removeProperty('--ty'); });
+    });
 }
 
