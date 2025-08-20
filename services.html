@@ -121,7 +121,10 @@
             function filterSections(){
                 var valid = ['web-development','backend-apis','ai-ml-nlp'];
                 var hash = (window.location.hash || '').slice(1);
-                var shouldFilter = valid.indexOf(hash) !== -1;
+                if (valid.indexOf(hash) === -1) {
+                    hash = 'web-development';
+                }
+                var shouldFilter = true;
                 var sections = document.querySelectorAll('.service-section');
                 if (shouldFilter){
                     document.body.classList.add('filtered');
