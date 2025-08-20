@@ -2,31 +2,31 @@
   {
     "title": "Movie Recommender System",
     "description": "Content-based recommender that suggests similar movies using cosine similarity.",
-    "image": "images/pexels-xxss-is-back-777001.jpg",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop",
     "link": "https://github.com/Tanish-og/movie-recommender-system"
   },
   {
     "title": "Credit Approval System",
     "description": "Credit approval system to evaluate loan applications and automate eligibility decisions.",
-    "image": "images/pexels-zetong-li-1784578.jpg",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
     "link": "https://github.com/Tanish-og/credit-approval-system"
   },
   {
     "title": "Hand Gesture Recognition",
     "description": "Real-time hand gesture recognition (Streamlit + MediaPipe + OpenCV) with finger counting via WebRTC.",
-    "image": "images/pexels-andrew-neel-6633920.jpg",
+    "image": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop",
     "link": "https://github.com/Tanish-og/Hand-gesture-recognition"
   },
   {
     "title": "Email Reply Assistant",
     "description": "Lightweight web app to draft quick email replies; deployed on Vercel.",
-    "image": "images/pexels-designecologist-1779487.jpg",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
     "link": "https://github.com/Tanish-og/Emailreply"
   },
   {
     "title": "Jobnet",
     "description": "Job listings and application tracker with search and filters.",
-    "image": "images/pexels-taner-soyler-2459870.jpg",
+    "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1200&auto=format&fit=crop",
     "link": "https://github.com/Tanish-og/jobnet"
   }
 ]

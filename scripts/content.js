@@ -80,6 +80,19 @@ function renderWorks(works, cacheBust) {
     works.forEach((work, index) => {
         const workDiv = document.createElement('div');
         workDiv.className = 'work';
+        if (work.link) {
+            workDiv.classList.add('has-link');
+            workDiv.setAttribute('role', 'link');
+            workDiv.tabIndex = 0;
+            const openLink = () => window.open(work.link, '_blank', 'noopener');
+            workDiv.addEventListener('click', openLink);
+            workDiv.addEventListener('keydown', (ev) => {
+                if (ev.key === 'Enter' || ev.key === ' ') {
+                    ev.preventDefault();
+                    openLink();
+                }
+            });
+        }
         if (index >= 3) {
             workDiv.classList.add('is-hidden');
         }
@@ -102,6 +115,10 @@ function renderWorks(works, cacheBust) {
             ${work.link ? `<a href="${work.link}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-up-right-from-square"></i></a>` : ''}
         `;
         workDiv.appendChild(layer);
+        const anchor = layer.querySelector('a');
+        if (anchor) {
+            anchor.addEventListener('click', (e) => e.stopPropagation());
+        }
 
         container.appendChild(workDiv);
     });
